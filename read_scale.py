@@ -35,7 +35,7 @@ def getLatestImage():
 
 def bitchAboutNoCoffee():
     capture()
-    post_image("Thirsty? Blame this person...", getLatestImage())
+    post_image("Thirsty? Blame this person... " + getLatestImage(), "")
 
 def checkScaleOne():
     global scale1IsEmpty
