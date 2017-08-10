@@ -70,14 +70,14 @@ while True:
                 #        'POSITIVE' if label == config.POSITIVE_LABEL else 'NEGATIVE',
                 #        confidence)
                 print 'Predicted {0} face with confidence {1} (lower is more confident).'.format(label, confidence)
-                if label == config.LOUIS_LABEL and confidence < 4100:
+                if label == config.LOUIS_LABEL and confidence < 4200:
                         print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                         # light.set_color(0, 255, 0)
                         # d.move(0, 0)
                         # d.write("Hello Louis".format(label))
                         print 'Hello JASON'
-                elif label == config.TYLER_LABEL and confidence < 2600:
+                elif label == config.TYLER_LABEL and confidence < 4200:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                         # light.set_color(0, 255, 0)
