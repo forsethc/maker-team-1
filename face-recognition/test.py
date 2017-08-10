@@ -71,11 +71,12 @@ while True:
                 #        confidence)
                 print 'Predicted {0} face with confidence {1} (lower is more confident).'.format(label, confidence)
                 if label == config.LOUIS_LABEL and confidence < 4100:
-                        #print 'Recognized face!'
+                        print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                         # light.set_color(0, 255, 0)
                         # d.move(0, 0)
                         # d.write("Hello Louis".format(label))
+                         print 'Hello Louis'
                 elif label == config.ANTHO_LABEL and confidence < 2600:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
