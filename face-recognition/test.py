@@ -12,9 +12,9 @@ import time
 import cv2
 from opencv import config
 from opencv import face
-from lcd import backlight
-from lcd import screen
-from lcd import display
+# from lcd import backlight
+# from lcd import screen
+# from lcd import display
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -26,10 +26,10 @@ args = vars(ap.parse_args())
 vs = VideoStream(usePiCamera=args["picamera"] > 0).start()
 time.sleep(2.0)
 
-d = display.Display(SMBus(1))
-d.move(0, 0)
-light = backlight.Backlight(SMBus(1), 0x62)
-light.set_color(0, 0, 0)
+# d = display.Display(SMBus(1))
+# d.move(0, 0)
+# light = backlight.Backlight(SMBus(1), 0x62)
+# light.set_color(0, 0, 0)
 faceCascade = cv2.CascadeClassifier("opencv/haarcascade_frontalface_default.xml")
 print 'Loading training data...'
 
