@@ -76,7 +76,7 @@ while True:
                         # light.set_color(0, 255, 0)
                         # d.move(0, 0)
                         # d.write("Hello Louis".format(label))
-                        print 'Hello Louis'
+                        print 'Hello JASON'
                 elif label == config.ANTHO_LABEL and confidence < 2600:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
