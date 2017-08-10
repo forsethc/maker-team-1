@@ -1,10 +1,14 @@
 import usb
 import time
+from post_image import post_image
 
 scale1 = None
 scale2 = None
 DATA_MODE_OUNCES = 11
 DATA_MODE_GRAMS = 2
+EMPTY_CARAFE_WEIGHT = 100
+EMPTY_CARAFE_BUFFER = 10
+EMPTY_CARAFE_NOTIFICATION = "Carafe on {} is empty"
 
 def main():
     global scale1, scale2
@@ -20,8 +24,23 @@ def main():
             scale2 = device
 
     while True:
-        print "Scale 1 is at weight : '" + str(readScaleOne()) +"' g"
+        checkScaleOne()
+
         time.sleep(1)
+
+def getLatestImage():
+    return "http://team1.widen.com/coffee/images/image.jpg"
+
+def bitchAboutNoCoffee():
+    post_image(getLatestImage(), "")
+
+def checkScaleOne():
+    weight = readScaleOne()
+    if weight is not None:
+        print "Scale 1 is at weight : '" + str(weight) +"' g"
+        if weight < EMPTY_CARAFE_WEIGHT + EMPTY_CARAFE_BUFFER:
+            print EMPTY_CARAFE_NOTIFICATION.format("scale 1")
+            bitchAboutNoCoffee()
 
 def readScaleOne():
     global scale1
@@ -31,6 +50,7 @@ def readScaleTwo():
     global scale2
     return readWeight(scale2)
 
+# returns scale reading in grams
 def readWeight(device):
     endpoint = device[0][(0,0)][0]
 
@@ -43,7 +63,7 @@ def readWeight(device):
             data = None
             if e.args == ('Operation timed out',):
                 attempts -= 1
-                print e
+                # print e
                 continue
 
     raw_weight = data[4] + (256 * data[5])
@@ -56,14 +76,14 @@ def readWeight(device):
         weight = "%s g" % grams
 
     reading = weight
-    print "raw reading '" + reading +"'"
+    # print "raw reading '" + reading +"'"
 
     readval = float(reading.split(" ")[0])
     readunit = reading.split(" ")[1]
     ## if the units are ounces ("oz") then convert to "g"
     if readunit == "oz" and readval !=0:
         readval = readval*28.3495
-        print "converted oz to g"
+        # print "converted oz to g"
 
     return readval
 
