@@ -7,5 +7,5 @@ camera.framerate = 15
 
 camera.start_preview()
 sleep(5)
-camera.capture('/home/pi/Desktop/image.jpg')
+camera.capture('/home/pi/maker-team-1/images/image.jpg')
 camera.stop_preview()
