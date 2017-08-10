@@ -6,6 +6,6 @@ camera.resolution = (2592, 1944)
 camera.framerate = 15
 
 camera.start_preview()
-sleep(5)
+sleep(2)
 camera.capture('/home/pi/maker-team-1/images/image.jpg')
 camera.stop_preview()
