@@ -91,7 +91,7 @@ while True:
                                 print "Hello {0} - confidence {1}".format(label, confidence)
                         if ids.count(label) == 0 and len(ids) < 12:
                                 ids.append(label)
-                elif label == config.ANTHO_LABEL and confidence < 2500:
+                elif label == config.TYLER_LABEL and confidence < 2500:
                         #print 'Recognized face!'
                         #cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)                        
                         if lcdDisplay:
