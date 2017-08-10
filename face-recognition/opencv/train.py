@@ -65,11 +65,11 @@ if __name__ == '__main__':
                 path = os.path.basename(filename)
                 path = path.split("_")[0]
                 print path
-                if(path == "louis"):
+                if(path == "jason"):
                         faces.append(prepare_image(filename))
                         labels.append(config.LOUIS_LABEL)
                         pos_count += 1
-                if(path == "antho"):
+                if(path == "tyler"):
                         faces.append(prepare_image(filename))
                         labels.append(config.ANTHO_LABEL)
                         pos_count += 1
