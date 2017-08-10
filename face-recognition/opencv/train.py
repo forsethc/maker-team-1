@@ -67,7 +67,7 @@ if __name__ == '__main__':
                 print path
                 if(path == "jason"):
                         faces.append(prepare_image(filename))
-                        labels.append(config.LOUIS_LABEL)
+                        labels.append(config.JASON_LABEL)
                         pos_count += 1
                 if(path == "tyler"):
                         faces.append(prepare_image(filename))
