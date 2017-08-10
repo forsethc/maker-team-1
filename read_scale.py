@@ -1,13 +1,15 @@
 import usb
 import time
 from post_image import post_image
+from camera/capture-still import capture
 
 scale1 = None
+scale1IsEmpty = False
 scale2 = None
 DATA_MODE_OUNCES = 11
 DATA_MODE_GRAMS = 2
-EMPTY_CARAFE_WEIGHT = 100
-EMPTY_CARAFE_BUFFER = 10
+EMPTY_CARAFE_WEIGHT = 3460
+EMPTY_CARAFE_BUFFER = 200
 EMPTY_CARAFE_NOTIFICATION = "Carafe on {} is empty"
 
 def main():
@@ -32,15 +34,21 @@ def getLatestImage():
     return "http://team1.widen.com/coffee/images/image.jpg"
 
 def bitchAboutNoCoffee():
-    post_image(getLatestImage(), "")
+    capture()
+    post_image("Thirsty? Blame this person...", getLatestImage())
 
 def checkScaleOne():
+    global scale1IsEmpty
     weight = readScaleOne()
     if weight is not None:
         print "Scale 1 is at weight : '" + str(weight) +"' g"
         if weight < EMPTY_CARAFE_WEIGHT + EMPTY_CARAFE_BUFFER:
             print EMPTY_CARAFE_NOTIFICATION.format("scale 1")
-            bitchAboutNoCoffee()
+            if scale1IsEmpty == False:
+                bitchAboutNoCoffee()
+            scale1IsEmpty = True
+        else:
+            scale1IsEmpty = False
 
 def readScaleOne():
     global scale1
