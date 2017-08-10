@@ -34,6 +34,7 @@ ANAMARIA_LABEL = 7
 OLIVIER_LABEL = 8
 NADINE_LABEL = 9
 JASON_LABEL = 10
+NICO_LABEL = 11
 
 # Size (in pixels) to resize images for training and prediction.
 # Don't change this unless you also change the size of the training images.
