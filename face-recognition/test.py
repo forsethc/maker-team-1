@@ -63,7 +63,9 @@ while True:
                 crop = face.resize(face.crop(gray, x, y, w, h))
                 # Test face against model.
                 label, confidence = model.predict(crop)
-                
+
+                print label
+
                 #print 'Predicted {0} face with confidence {1} (lower is more confident).'.format(
                 #        'POSITIVE' if label == config.POSITIVE_LABEL else 'NEGATIVE',
                 #        confidence)
