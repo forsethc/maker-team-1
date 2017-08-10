@@ -33,12 +33,12 @@ time.sleep(2.0)
 faceCascade = cv2.CascadeClassifier("opencv/haarcascade_frontalface_default.xml")
 print 'Loading training data...'
 
-d.write("Setting up")
+# d.write("Setting up")
 model = cv2.createEigenFaceRecognizer()
 model.load("opencv/training.xml")
 
 print 'Training data loaded!'
-d.write("Ready")
+# d.write("Ready")
 
 # loop over the frames from the video stream
 while True:
@@ -72,37 +72,37 @@ while True:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                         light.set_color(0, 255, 0)
-                        d.move(0, 0)
-                        d.write("Hello Louis".format(label))
+                        # d.move(0, 0)
+                        # d.write("Hello Louis".format(label))
                 elif label == config.ANTHO_LABEL and confidence < 2600:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                         light.set_color(0, 255, 0)
-                        d.move(0, 0)
-                        d.write("Hello Antho".format(label))
+                        # d.move(0, 0)
+                        # d.write("Hello Antho".format(label))
                 elif label == config.NICO_LABEL and confidence < 2600:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                         light.set_color(0, 255, 0)
-                        d.move(0, 0)
-                        d.write("Hello Nico".format(label))
+                        # d.move(0, 0)
+                        # d.write("Hello Nico".format(label))
                 elif label == config.BATISTE_LABEL and confidence < 2200:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                         light.set_color(0, 255, 0)
-                        d.move(0, 0)
-                        d.write("Hello Batiste".format(label))
+                        # d.move(0, 0)
+                        # d.write("Hello Batiste".format(label))
                 else:
                         #print 'Did not recognize face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)
                         light.set_color(0, 0, 0)
-                        d.move(0, 0)
-                        #d.write("Do I know you?")
+                        # d.move(0, 0)
+                        # d.write("Do I know you?")
                 
 
         # show the frame
-        d.write("                   ")
-        d.write("                   ")
+        # d.write("                   ")
+        # d.write("                   ")
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
 
