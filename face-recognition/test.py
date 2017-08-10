@@ -71,31 +71,31 @@ while True:
                 if label == config.LOUIS_LABEL and confidence < 3000:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                        light.set_color(0, 255, 0)
+                        # light.set_color(0, 255, 0)
                         # d.move(0, 0)
                         # d.write("Hello Louis".format(label))
                 elif label == config.ANTHO_LABEL and confidence < 2600:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                        light.set_color(0, 255, 0)
+                        # light.set_color(0, 255, 0)
                         # d.move(0, 0)
                         # d.write("Hello Antho".format(label))
                 elif label == config.NICO_LABEL and confidence < 2600:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                        light.set_color(0, 255, 0)
+                        # light.set_color(0, 255, 0)
                         # d.move(0, 0)
                         # d.write("Hello Nico".format(label))
                 elif label == config.BATISTE_LABEL and confidence < 2200:
                         #print 'Recognized face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                        light.set_color(0, 255, 0)
+                        # light.set_color(0, 255, 0)
                         # d.move(0, 0)
                         # d.write("Hello Batiste".format(label))
                 else:
                         #print 'Did not recognize face!'
                         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)
-                        light.set_color(0, 0, 0)
+                        # light.set_color(0, 0, 0)
                         # d.move(0, 0)
                         # d.write("Do I know you?")
                 
@@ -108,7 +108,7 @@ while True:
 
         # if the `q` key was pressed, break from the loop
         if key == ord("q"):
-                light.set_color(0, 0, 0)
+                # light.set_color(0, 0, 0)
                 break
 
 # do a bit of cleanup
